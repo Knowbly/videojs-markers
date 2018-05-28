@@ -1,5 +1,5 @@
 (function (global, factory) {
-  
+
     if (typeof define === "function" && define.amd) {
         define(["video.js"], factory);
     } else if (typeof exports !== "undefined") {
@@ -60,6 +60,8 @@
         },
         onMarkerClick: function onMarkerClick() {},
         onMarkerReached: function onMarkerReached() {},
+        onMarkerHover: function onMarkerHover() {},
+        onMarkerOut: function onMarkerOut() {},
         markers: [],
         duration: 0
     };
@@ -158,18 +160,25 @@
                     markerTip.style.marginLeft = `${-parseFloat(markerTip.getBoundingClientRect().width / 2) + parseFloat(markerDiv.getBoundingClientRect().width / 4)}px`;
                     markerTip.style.visibility = "visible";
                 }
+                if (marker.type === "bookmark") {
+                    options.onMarkerHover(marker);
+                }
             });
 
             markerDiv.addEventListener("mouseout", () => {
+                const marker = markersMap[markerDiv.getAttribute("data-marker-key")];
                 if (markerTip) {
                     markerTip.style.visibility = "hidden";
+                }
+                if (marker.type === "bookmark") {
+                    options.onMarkerOut(marker);
                 }
             });
         }
 
         function createMarkerDiv(marker) {
             const markerDiv = _video2.default.createEl("div", {
-                className: `vjs-marker ${options.markerClass || ""} ${marker.class || ""} `
+                className: `vjs-marker ${marker.class || ""} ${options.markerClass || ""}`
             }, {
                 "data-marker-key": marker.key,
                 "data-marker-time": setting.markerTip.time(marker)
@@ -197,7 +206,7 @@
                 }
             });
 
-            if (setting.markerTip.display) {
+            if (setting.markerTip.display || marker.type === "bookmark") {
                 registerMarkerTipHandler(markerDiv);
             }
 
