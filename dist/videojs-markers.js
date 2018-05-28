@@ -160,7 +160,7 @@
                     markerTip.style.marginLeft = `${-parseFloat(markerTip.getBoundingClientRect().width / 2) + parseFloat(markerDiv.getBoundingClientRect().width / 4)}px`;
                     markerTip.style.visibility = "visible";
                 }
-                if (marker.class === "bookmark") {
+                if (marker.type === "bookmark") {
                     options.onMarkerHover(marker);
                 }
             });
@@ -170,7 +170,7 @@
                 if (markerTip) {
                     markerTip.style.visibility = "hidden";
                 }
-                if (marker.class === "bookmark") {
+                if (marker.type === "bookmark") {
                     options.onMarkerOut(marker);
                 }
             });
@@ -206,7 +206,7 @@
                 }
             });
 
-            if (setting.markerTip.display || marker.class === "bookmark") {
+            if (setting.markerTip.display || marker.type === "bookmark") {
                 registerMarkerTipHandler(markerDiv);
             }
 
