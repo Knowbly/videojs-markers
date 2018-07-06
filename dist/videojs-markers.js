@@ -146,7 +146,8 @@
 
         function getPosition(marker) {
             const rDuration = setting.realDuration || setting.duration;
-            return (setting.markerTip.time(marker) / rDuration) * 100;
+            const result = (setting.markerTip.time(marker) / rDuration) * 100;
+            return result > 100 ? 100 : result;
         }
 
         // attach hover event handler
