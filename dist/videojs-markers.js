@@ -480,6 +480,6 @@
         };
     }
 
-    _video2.default.plugin("markers", registerVideoJsMarkersPlugin);
+    _video2.default.registerPlugin("markers", registerVideoJsMarkersPlugin);
 }));
 // # sourceMappingURL=videojs-markers.js.map
