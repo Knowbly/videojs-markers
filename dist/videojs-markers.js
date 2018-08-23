@@ -112,8 +112,8 @@
             _video2.default.mergeOptions = mergeOptions;
         }
 
-        if (!_video2.default.dom.createEl) {
-            _video2.default.dom.createEl = function (tagName, props, attrs) {
+        if (!_video2.default.createEl) {
+            _video2.default.createEl = function (tagName, props, attrs) {
                 const el = _video2.default.Player.prototype.createEl(tagName, props);
                 if (attrs) {
                     Object.keys(attrs).forEach((key) => {
@@ -178,7 +178,7 @@
         }
 
         function createMarkerDiv(marker) {
-            const markerDiv = _video2.default.dom.createEl("div", {
+            const markerDiv = _video2.default.createEl("div", {
                 className: `vjs-marker ${marker.class || ""} ${options.markerClass || ""}`
             }, {
                 "data-marker-key": marker.key,
@@ -275,7 +275,7 @@
         }
 
         function initializeMarkerTip() {
-            markerTip = _video2.default.dom.createEl("div", {
+            markerTip = _video2.default.createEl("div", {
                 className: "vjs-tip",
                 innerHTML: "<div class='vjs-tip-arrow'></div><div class='vjs-tip-inner'></div>"
             });
@@ -313,7 +313,7 @@
 
         // problem when the next marker is within the overlay display time from the previous marker
         function initializeOverlay() {
-            breakOverlay = _video2.default.dom.createEl("div", {
+            breakOverlay = _video2.default.createEl("div", {
                 className: "vjs-break-overlay",
                 innerHTML: "<div class='vjs-break-overlay-text'></div>"
             });
