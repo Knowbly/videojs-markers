@@ -481,15 +481,11 @@ var _typeof2 =
       }
       onTimeUpdate();
       player.on("timeupdate", onTimeUpdate);
-      player.off("loadedmetadata");
     }
 
     // setup the plugin after we loaded video's meta data
     player.on("durationchange", function() {
-      var duration = player.duration();
-      if (duration > 0 && !setting.realDuration) {
-        initialize(duration);
-      }
+      initialize(player.duration());
     });
 
     // exposed plugin API
