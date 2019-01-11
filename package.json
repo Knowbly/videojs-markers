@@ -9,6 +9,10 @@
   "scripts": {
     "flow": "flow; test $? -eq 0 -o $? -eq 2"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spchuang/videojs-markers.git"
+  },
   "devDependencies": {
     "babel-plugin-syntax-trailing-function-commas": "6.13.0",
     "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
