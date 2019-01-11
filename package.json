@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/spchuang/videojs-markers.git"
+    "url": "git+https://github.com/Knowbly/videojs-markers.git"
   },
   "devDependencies": {
     "babel-plugin-syntax-trailing-function-commas": "6.13.0",
