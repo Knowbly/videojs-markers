@@ -80,6 +80,9 @@ jspm_packages
 # Optional npm cache directory
 .npm
 
+# Ignore as repo submodule
+.git
+
 # Optional REPL history
 .node_repl_history
 
