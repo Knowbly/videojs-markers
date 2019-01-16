@@ -459,10 +459,12 @@ var _typeof2 =
     }
 
     function onTimeUpdate() {
-      onUpdateMarker();
-      updateBreakOverlay();
-      if (options.onTimeUpdateAfterMarkerUpdate)
-        options.onTimeUpdateAfterMarkerUpdate();
+      if (player.hasStarted()) {
+        onUpdateMarker();
+        updateBreakOverlay();
+        if (options.onTimeUpdateAfterMarkerUpdate)
+          options.onTimeUpdateAfterMarkerUpdate();
+      }
     }
 
     // setup the whole thing
