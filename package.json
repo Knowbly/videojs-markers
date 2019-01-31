@@ -4,7 +4,7 @@
   "version": "1.0.1",
   "main": "dist/videojs-markers.js",
   "peerDependencies": {
-    "video.js": ">=4"
+    "video.js": "git@github.com:Knowbly/video.js"
   },
   "scripts": {
     "flow": "flow; test $? -eq 0 -o $? -eq 2"
